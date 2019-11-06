@@ -1,0 +1,48 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>search_page</title>
+
+		<link rel="stylesheet" type="text/css" href="{% static 'price/css/stylesheet1.css' %}">
+	    
+	    <meta charset="utf-8"> 
+		
+		<!--bootstrap file-->
+
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	</head>
+	<body >
+		<div class="container">
+			
+			<div class = "row" id="div1">
+			 	<h1 align="center" id="heading">PRODUCTS</h1>
+			</div>
+
+		
+
+			<div class = "row" id="div2">
+			 <div class="col-sm-12">
+			{% for c,v in result %}
+				<div class="item">
+				  <a target="_blank" href="pic1.jpg">
+				    <img src={{v.imgurl}}  width="600" height="400">
+				  </a>
+				  <div class="desc">
+				  	<a href={{v.url}}><h4>{{v.name}}<h4></a>
+				  	<h4>{{ v.price }}<h4>
+				  	<h4>{{v.rating}}<h4>
+					<h4>{{ v.website}}</h4>
+				  </div>
+				</div>
+			{% endfor %}
+			
+			</div>
+		</div>
+	</body>
+	</html>

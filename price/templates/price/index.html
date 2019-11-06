@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+		<title>price_comparator</title>
+		<link href="{% static 'price/css/main1.css' %}" rel="stylesheet">
+		<!---<link rel="stylesheet" type="text/css" href="{% static 'price/css/main.css' %}" rel="stylesheet"/>-->
+	    
+ 
+		
+		<!--bootstrap file-->
+
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	</head>
+	<body>
+		<div class="container">
+			
+			<div class = "row" id="div1">
+			 	<h1 align="center" id="heading">PRICE COMPARATOR</h1>
+			</div>
+			
+			<div class = "row" id ="div2" >
+				<form action="{% url 'index' %}" method="POST">
+					{% csrf_token %}
+						<h3 align="center">	
+							{{ form.search }}
+							<input type="submit" value="Search">
+						</h3>
+						
+				</form>
+			</div>
+		</div>
+	</body>
+	</html>

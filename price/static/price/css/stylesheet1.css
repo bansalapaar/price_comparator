@@ -1,0 +1,26 @@
+#div1{
+        background-color: darkorange;
+      }
+
+div.item {
+  margin: 1px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.item:hover {
+  border: 1px solid #777;
+}
+
+div.item img {
+  width: 100%;
+  height: auto;
+}
+
+div.item {
+  padding: 5px;
+  text-align: left;
+}
+
+
