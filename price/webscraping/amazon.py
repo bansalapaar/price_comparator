@@ -19,18 +19,19 @@ def amazon_price(item_name):
 		img=""
 		i=i+1
 		dic1={}
+		rl=item.find_all('a',attrs={"class":"a-link-normal"})
+		rm=item.find_all('img',attrs={"class":"s-image"})
 		rp= item.find_all('span',attrs={'class':'a-price-whole'})
 		rr= item.find_all('span',attrs={'class':'a-icon-alt'})
 		rn= item.find_all('span',attrs={'class':'a-size-medium a-color-base a-text-normal'})
-		
-		if not(len(rp)==0) and not(len(rr)==0) and not(len(rn)==0):
+		if not(len(rp)==0) and not(len(rr)==0) and not(len(rn)==0) and not(len(rm)==0) and not(len(rl)==0):
 	        
 			dic1.update({"name":rn[0].text})
 			dic1.update({"rating":rr[0].text})
 			dic1.update({"price":int(rp[0].text.replace(",",""))})
 			dic1.update({"website":"Amazon"})
-			dic1.update({"url":newurl})
-			dic1.update({"imgurl":img})  
+			dic1.update({"url":rl[0]['href']})
+			dic1.update({"imgurl":rm[0]['src']})  
 			key="amazon"+str(i)
 			amazon_dict.update({key:dic1})
 

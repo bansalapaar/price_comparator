@@ -30,11 +30,10 @@
 			 <div class="col-sm-12">
 			{% for c,v in result %}
 				<div class="item">
-				  <a target="_blank" href="pic1.jpg">
+				  
 				    <img src={{v.imgurl}}  width="600" height="400">
-				  </a>
 				  <div class="desc">
-				  	<a href={{v.url}}><h4>{{v.name}}<h4></a>
+				  	<a href={{v.url}}><h4 id="name">{{v.name}}<h4></a>
 				  	<h4>{{ v.price }}<h4>
 				  	<h4>{{v.rating}}<h4>
 					<h4>{{ v.website}}</h4>

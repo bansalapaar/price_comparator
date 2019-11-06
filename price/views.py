@@ -8,7 +8,7 @@ def index(request):
         form=searching(request.POST)
         if form.is_valid():
             new_search = request.POST['search']
-            print(new_search)
+            #print(new_search)
             result=obj.comp(new_search)
             return redirect('mainSearch')
     else:
@@ -17,7 +17,5 @@ def index(request):
     return render(request,'price/index.html',context)
 def mainSearch(request):
     context={"result":obj.result}
-    for c in context['result']:
-        print(c[1]['price'])
     return render(request,'price/search.html',context)
 # Create your views here.

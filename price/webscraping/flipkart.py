@@ -78,7 +78,7 @@ def flipkart_price(item_name):
                 dict1.update({"price":""})
             '''if not len(rating1)==0:
                 dict1.update({"rating":rating1[0].text})'''
-            dict1.update({"rating":""})
+            dict1.update({"rating":"No rating"})
             dict1.update({"website":"Flipkart"})
             dict1.update({"url":newurl})
             dict1.update({"imgurl":img})  
@@ -122,7 +122,7 @@ def flipkart_price(item_name):
             if not len(rating1)==0:
                 dict1.update({"rating":rating1[0].text})
             else:
-                dict1.update({"rating":""})
+                dict1.update({"rating":"No rating"})
                 
             dict1.update({"website":"Flipkart"})
             dict1.update({"url":newurl})

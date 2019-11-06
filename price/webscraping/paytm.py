@@ -19,7 +19,7 @@ def paytm_price(item_name):
         #soup1=BeautifulSoup(newr.content,'html.parser')
         #print(soup1)
         img=item.find_all("img")[0]['src']
-        print(img)
+        #print(img)
         name1=item.find_all("div",{"class":"UGUy"})
         
         price1=item.find_all("div",{"class":"_1kMS"})
