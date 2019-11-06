@@ -15,6 +15,9 @@ def flipkart_price(item_name):
             i=i+1
             dict1={}
             newurl="https://www.flipkart.com"+item['href']
+            imgdiv=item.find_all("div",attrs={"class":"_3ZJShS _31bMyl"})
+            #img=imgdiv.find_all("img")[0]['src']
+            print(imgdiv)
             #dict1.update({'link':newurl})
             name1=item.find_all("div",{"class":"_3wU53n"})
             price1=item.find_all("div",{"class":"_1vC4OE _2rQ-NK"})
