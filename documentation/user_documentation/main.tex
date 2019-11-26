@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{bera}
+\usepackage{bm}
+
+\usepackage{array}
+\usepackage{blkarray}
+\usepackage{dirtytalk}
+\usepackage{adjustbox}
+
+\usepackage{blindtext}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{letltxmacro}
+\usepackage[T1]{fontenc}
+\usepackage{qtree}
+\usepackage[linesnumbered,lined,boxed]{algorithm2e}
+\usepackage{listings}
+
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\lstdefinestyle{mystyle}{
+basicstyle=\Large,
+commentstyle=\color{codegreen},
+keywordstyle=\color{blue},
+frame=lines
+}
+\lstset{style=mystyle}
+\renewcommand\thesection{\arabic{section}}
+\title{\Huge{\textbf{PRICE COMPARATOR}\\
+\Huge{\textbf{REPORT 2018-2019}}}}
+\author{\huge{Eureka}\\\large{193050019}\\\large{193050035
+}\\\large{193050036}}
+\date{\Large{27th November, 2019}}
+\pagenumbering{arabic}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{titling}
+\usepackage{forest}
+
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+
+\def\Size{4pt}
+\tikzset{
+  folder/.pic={
+    \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+      (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);  
+    \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+      (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+  }
+}
+
+
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\begin{document}
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
+\setcounter{page}{1}
+\tableofcontents
+\pagebreak
+\section{\LARGE{MOTIVATION}}
+\subsection{\Large{Motivation}}
+In today’s  scenario business is shifting online.Mostly people do not want to go to market to buy  something. They rather prefer to order the products online.Now a days everything is available online.This increasing demand of customers boom the online business to a great extent.There are various websites available  such as Amazon, Flipkart, Snapdeal etc. Now if a customer want to buy something online it is cumbersome work to search all such websites to get the best product at lowest price.There is a need of something like price comparator in which customer only type the name of product and he will get the website name which is selling this product  at lowest price.
+
+\section{\LARGE{USER DOCUMENTATION}}
+\subsection{\large{Directory Structure}}
+The following directory structure shows the important folders and files present in project.
+\begin{forest}
+for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    inner xsep=7pt,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }  
+[
+  [source
+  [price
+  [static[price]]
+  [templates[price]]
+  [webscraping]]
+  [priceCom]
+  [dbsqlite3]
+  [manage.py]
+  ]
+  [documentation
+  [user documentation]
+  [developer documentation]
+  ]
+  [readme.txt
+  ]
+]
+\end{forest}
+
+\subsection{\large{Explaination of Directory Structure}}
+
+\begin{enumerate}
+\item \textbf{Source :} This folder contains the source code file and sub folder. 
+\item \textbf{Price :} This folder contains the source code file and sub folder.
+\item \textbf{static -> price :} This folder contains the css and html code.
+\item \textbf{templates->price :} This folder contains the hmtl code for frontend.
+\item \textbf{Webscraping :} This folder contains the  main python files required in our project.
+\item \textbf{PriceCom :} This folder contains the django related files.
+\item \textbf{Documentation:}This folder contains the documentation part for user and developer in the respective subfolder.
+\item\textbf{readme.txt: } This file contain the information about the team and documentation how to execute the code.
+\end{enumerate}
+
+\subsection{\large{Execution of the project}}
+In order of execute the project follow the following steps:
+\begin{enumerate}
+\item Open the terminal in the 'source' named folder.
+\item Execute the following command to start the website.\\
+    
+    python manage.py runserver [IP address]:[port number]\\ \\
+    example: python manage.py runserver 127.0.0.1:8000
+
+\item You will get a link.Click on link to start the website.
+
+\end{enumerate}
+
+
+\section{\LARGE{APPLICATION}}
+\subsection{\Large{Application}}
+As the bussiness is shifting towards the e-commerece websites such as amazon,flipkart etc.So every such website offer different discounts from time to time to attract customers.It is time consuming for the customer to check each such website to get the best deal.So in our project we make a common platform where the user only need to enter the product name and our website compares the price of that product on different websites(particularly amazon, flipkart, paytm mall and snapdeal) and suggest the best deal to the user.   ggo
+\begin{itemize}
+\renewcommand\labelitemi{\large$\bullet$}
+    \item Price Comparator has the best utility for the shoppers.They can view the best deals and offers for the particular product they are looking for.
+    \item Price comparator site also gives ecommerce websites a good opportunity to boost their sales and  attract new customers.
+\item  Shoppers can compare prices, and service from multiple online websites on a single page and choose the site that offers the best overall value.
+\item This will make easy shopping with best deals as well as ecommerce merchants to know well about their competitors.
+\end{itemize}
+
+
+\section{\LARGE{REFERENCES}}
+\begin{thebibliography}{9}
+\bibitem{project_idea}
+https:$//$pypi.org/project/pricegrabber/
+\bibitem{flipkart_scrap}
+https:$//$medium.com/@harshvb7/web-scraping-flipkart-com-example-52b3e5edd257
+\bibitem{amazon_scrap}
+https:$//$www.geeksforgeeks.org/amazon-product-price-tracker-using-python
+
+\bibitem{}
+https://medium.com/quick-code/python-web-scraping-tutorial-74ace70e01
+\bibitem{}
+https://towardsdatascience.com/how-to-web-scrape-with-python-in-4-minutes-bc49186a8460
+\bibitem{}
+https://medium.com/@tusharseth93/scraping-the-web-a-fast-and-simple-way-to-scrape-amazon-b3d6d74d649f
+\end{thebibliography}
+\end{document}
+	
+
+

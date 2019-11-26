@@ -1,3 +1,9 @@
+"""
+flipkart.py
+================
+This module is used to do webscraping on flikart website. It searches the product on the flipkart website entered by user and store the important information related to product
+"""
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -5,17 +11,29 @@ import re
 
 
 def flipkart_price(item_name):
-    token1 = re.split(',|;|:|_| |\.', item_name)
-    url = 'https://www.flipkart.com/search?q='+item_name + \
+	"""
+	This function store the important information related to the searched product
+	Parameters
+	-----------------
+	item_name is the name of the product entered by the user to be searched
+	"""
+	token1 = re.split(',|;|:|_| |\.', item_name)
+	url = 'https://www.flipkart.com/search?q='+item_name + \
         '&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&as-pos=0&as-type=HISTORY&as-backfill=on'
-    r = requests.get(url)
-    soup = BeautifulSoup(r.content, 'html5lib')
+	r = requests.get(url)
+	soup = BeautifulSoup(r.content, 'html5lib')
     box = soup.find_all('a', {"class": "_31qSD5"})
     flipkart_dict = {}
     i = 0
     img = ""
     box1 = soup.find_all('div', {"class": "IIdQZO _1R0K0g _1SSAGr"})
+    """
+    item on flipkart is present in three form so the following three condition are present to extract product information in any form
+    """
     if not len(box) == 0:
+    """
+	This for loop iterates each item related to product on the flikart webpage and store information about it 
+	"""
         for item in box:
             i = i+1
             if i>=6:
@@ -64,17 +82,12 @@ def flipkart_price(item_name):
             dict1.update({"imgurl":imgurl})  
             key="flip"+str(i)
             flipkart_dict.update({key:dict1})
-        # print(review[0].text)
-            # ,"\t\t",rating[0].text,"\t\t")
-        '''for a in color:
-            print(a.text)
-        for a in warranty:
-            print(a.text)
-        for a in extra:
-            print(a.text)'''
+    
     elif not len(box1)==0: 
-        # box1=soup.find_all('div',{"class":"_2LFGJH"})
-        # print(box)
+    
+       	"""
+		This for loop iterates each item related to product on the flikart webpage and store information about it 
+		"""
         for item in box1:
             i=i+1
             if i>=6:
@@ -125,16 +138,13 @@ def flipkart_price(item_name):
             key="flip"+str(i)
             flipkart_dict.update({key:dict1})
               
-        # print(review[0].text)
-            # ,"\t\t",rating[0].text,"\t\t")
-        '''for a in color:
-            print(a.text)
-        for a in warranty:
-            print(a.text)
-        for a in extra:
-            print(a.text)'''
+
     else :
         box1=soup.find_all('div',{"class":"_3liAhj _1R0K0g"}) 
+
+       	"""
+		This for loop iterates each item related to product on the flikart webpage for webpage whose format does not match with above twoand store information about it 
+		"""
         for item in box1:
             i=i+1
             if i>=6:

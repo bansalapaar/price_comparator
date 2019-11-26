@@ -1,3 +1,8 @@
+"""
+price_comparator.py
+======================
+This is the main program which call the function from amazon.py, flipkart.py, paytm.py and snapdeal.py to extract information from all the websites and integrate them into single list of items according to best deal. 
+"""
 from .amazon import amazon_price
 from .flipkart import flipkart_price
 from .paytm import paytm_price
@@ -7,13 +12,26 @@ from .snapdeal import snapdeal_price
 
 class price_comp:
     def __init__(self):
+	"""
+	it initialise the result list with null.
+	"""
         self.result=""
+
     def comp(self,item_name):
+        """
+        this
+
+        parameter
+        -----------------
+        it take item_name as input parameter and passes this item to all the functions (amazon_price,flipkart_price,paytm_price,snapdeal_price)
+        and sort them item according to the lowest price.
+        """
         dict1={}
         item_name=item_name.lower()
-        amazon_dict ={}#amazon_price(item_name)
-        #if 'amazon1' in amazon_dict:
-        #    dict1.update({'amazon':amazon_dict['amazon1']})
+
+        amazon_dict =amazon_price(item_name)
+        if 'amazon1' in amazon_dict:
+            dict1.update({'amazon':amazon_dict['amazon1']})
 
         paytm_dict =paytm_price(item_name)
         dict1.update({'paytm':paytm_dict['paytm1']})
@@ -29,6 +47,6 @@ class price_comp:
         price_sort = sorted(final_dict.items(), key=lambda x: x[1]['price'])
         for a in dict1:
             price_sort.insert(0,(a,dict1[a]))
-        #print(price_sort)
+    
         self.result=price_sort
         return (price_sort)

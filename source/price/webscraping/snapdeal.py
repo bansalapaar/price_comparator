@@ -1,3 +1,8 @@
+"""
+snapdeal.py
+================
+This module is used to do webscraping on snapdeal website. It searches the product on the sandeal website entered by user and store the important information related to product
+"""
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -5,6 +10,12 @@ import re
 
 
 def snapdeal_price(item_name):
+    """
+    This function store the important information related to the searched product
+    Parameters
+    -----------------
+    item_name is the name of the product entered by the user to be searched
+    """
     token1 = re.split(',|;|:|_| |\.', item_name)
     url = 'https://www.snapdeal.com/search?keyword='+"+".join(token1)+'&sort=rlvncy'
     r = requests.get(url)
@@ -13,12 +24,14 @@ def snapdeal_price(item_name):
     snapdeal_dict = {}
     i = 0
     for item in box:
-        #print(item)
+        """
+        This for loop iterates each item related to product on the snapdeal webpage and store information about it 
+        """
         i = i+1
         if i>5:
             break
         dict1 = {}
-        #print(item)
+        #dictionary to store the information about the item dataset
         newurl=item.find_all('a',attrs={'class':'dp-widget-link'})
         dict1.update({"link":newurl[0]['href']})
         imga=item.find('picture',attrs={'class':'picture-elem'})
