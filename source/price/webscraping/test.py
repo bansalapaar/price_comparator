@@ -1,2 +1,2 @@
-from snapdeal import snapdeal_price
-a=snapdeal_price('laptop')
+from amazon import amazon_price
+a=amazon_price('shoes')

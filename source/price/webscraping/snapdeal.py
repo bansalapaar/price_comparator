@@ -27,13 +27,13 @@ def snapdeal_price(item_name):
         #print(imgurl)
         try:
             imgurl1=re.split("\n",imgurl['src'])
-            dict1.update({'imgurl':imgurl1})
-            print(imgurl1)
+            dict1.update({'imgurl':imgurl1[0]})
+            #print(imgurl1[0])
         except:
             imgurl1=re.split("\n",imgurl['data-src'])
-            dict1.update({'imgurl':imgurl1})
-            print(imgurl1)
-        dict1.update({'imgurl':imgurl1})
+            dict1.update({'imgurl':imgurl1[0][:]})
+            #print(imgurl1[0][:])
+        dict1.update({'imgurl':imgurl1[0][:]})
         name=imgurl['title']
         token2 = re.split(',|;|:|_| |\.', (name).lower())
         #print(token2)
@@ -47,7 +47,7 @@ def snapdeal_price(item_name):
         dict1.update({'name':name})
         price=item.find('span',attrs={'class':'lfloat product-price'})['display-price']
         dict1.update({'price':int(price)})
-        print(price)
+        #print(price)
         rating=item.findAll('div',attrs={'class':'filled-stars'})
         if 'style' in rating:
             rat=rating['style'][6:-1]/20

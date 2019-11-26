@@ -16,7 +16,7 @@ class price_comp:
         #    dict1.update({'amazon':amazon_dict['amazon1']})
 
         paytm_dict =paytm_price(item_name)
-        #dict1.update({'paytm':paytm_dict['paytm1']})
+        dict1.update({'paytm':paytm_dict['paytm1']})
 
         flipkart_dict =flipkart_price(item_name)
         dict1.update({'flipkart':flipkart_dict['flip1']})
@@ -27,22 +27,6 @@ class price_comp:
 
     # sort the items by price
         price_sort = sorted(final_dict.items(), key=lambda x: x[1]['price'])
-        f=0
-        a=0
-        p=0
-        for i,j in price_sort:
-            if i[0][0]=='f' and f==0:
-                #k=flipbest(j["url"])
-
-                f=1
-                continue
-            if i[0][0]=='a' and a==0:
-                #k=amazonbest(j['url'])
-                a=1
-                continue
-            if i[0][0]=='p' and p==0:
-                #k=paytmbest(j['url'])
-                p=1
         for a in dict1:
             price_sort.insert(0,(a,dict1[a]))
         #print(price_sort)
