@@ -1,3 +1,6 @@
+"""
+it is search bar for our website created using django
+"""
 from django import forms
 
 class searching(forms.Form):

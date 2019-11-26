@@ -1,3 +1,8 @@
+"""
+paytm.py
+================
+This module is used to do webscraping on paytm mall website. It searches the product on the paytm mall website entered by user and store the important information related to product
+"""
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -5,6 +10,13 @@ import re
 
 
 def paytm_price(item_name):
+    
+    """
+    This function store the important information related to the searched product
+    Parameters
+    -----------------
+    item_name is the name of the product entered by the user to be searched
+    """
     token1 = re.split(',|;|:|_| |\.', item_name)
     url = 'https://paytmmall.com/shop/search?q=' + \
         item_name+'&from=organic&child_site_id=6&site_id=2'
@@ -14,24 +26,23 @@ def paytm_price(item_name):
     paytm_dict = {}
     i = 0
     for item in box:
+        """
+        This for loop iterates each item related to product on the paytm mall webpage and store information about it. 
+        """
         i = i+1
         if i>=6:
             break
         dict1 = {}
         newurl = "https://paytmmall.com/"+item['href']
-        # dict1.update({"link":newurl})
-
-        # newr=requests.get(newurl)
-        # soup1=BeautifulSoup(newr.content,'html.parser')
-        # print(soup1)
+ 
         img = item.find_all("img")[0]['src']
-        # print(img)
+ 
         name1 = item.find_all("div", {"class": "UGUy"})
 
         price1 = item.find_all("div", {"class": "_1kMS"})
         flag = 0
         token2 = re.split(',|;|:|_| |\.', (name1[0].text).lower())
-        #print(token2)
+      
         for a in token1:
             if not a in token2:
                 flag = 1
@@ -51,19 +62,5 @@ def paytm_price(item_name):
         dict1.update({"imgurl": img})
         key = "paytm"+str(i)
         paytm_dict.update({key: dict1})
-        '''price_after_promo=soup1.find_all("div",{"class":"o1At"})
-        if not len(price_after_promo)==0:
-            print(price_after_promo[0].text[15:])
-        promocode=soup1.find_all("div",{"class":"PF1t"})
-        if not len(promocode)==0:
-            print(promocode[0].text[11:]) 
-        
-        review=soup1.find_all("div",{"class":"_38Tb"})
-        if not len(review)==0:
-            print(review[0].text)
-        
-        warranty=soup1.find_all("div",{"class":"ZZBz nBgT"})
-        if not len(warranty) ==0: 
-            print(warranty[0].text)
-         '''
+
     return paytm_dict

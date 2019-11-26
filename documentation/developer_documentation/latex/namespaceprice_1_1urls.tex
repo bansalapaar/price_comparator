@@ -1,0 +1,28 @@
+\hypertarget{namespaceprice_1_1urls}{}\section{price.\+urls Namespace Reference}
+\label{namespaceprice_1_1urls}\index{price.\+urls@{price.\+urls}}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list {\bfseries urlpatterns}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}If the url provided is emtpy then view.index is accessed otherwise if the url is search/ then view of mainSearch is accessed
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceprice_1_1urls_a27b2f25314bfaa12f15a15d1636ba8e6}\label{namespaceprice_1_1urls_a27b2f25314bfaa12f15a15d1636ba8e6}} 
+\index{price\+::urls@{price\+::urls}!urlpatterns@{urlpatterns}}
+\index{urlpatterns@{urlpatterns}!price\+::urls@{price\+::urls}}
+\subsubsection{\texorpdfstring{urlpatterns}{urlpatterns}}
+{\footnotesize\ttfamily list price.\+urls.\+urlpatterns}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [
+2     path(\textcolor{stringliteral}{''},views.index,name=\textcolor{stringliteral}{'index'}),
+3     path(\textcolor{stringliteral}{'search/'},views.mainSearch,name=\textcolor{stringliteral}{'mainSearch'})
+4 ]
+\end{DoxyCode}

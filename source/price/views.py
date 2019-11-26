@@ -1,3 +1,6 @@
+"""
+If the request method is POST then it will check whether the form is valid . If the form is valid it render price/search.html otherwise if the request is GET then it will render price/index.html.
+"""
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import searching

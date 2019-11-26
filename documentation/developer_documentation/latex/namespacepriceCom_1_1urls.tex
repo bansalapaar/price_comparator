@@ -1,0 +1,40 @@
+\hypertarget{namespacepriceCom_1_1urls}{}\section{price\+Com.\+urls Namespace Reference}
+\label{namespacepriceCom_1_1urls}\index{price\+Com.\+urls@{price\+Com.\+urls}}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list {\bfseries urlpatterns}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}mysite URL Configuration
+
+Function views
+1. Add an import:  from my_app import views
+2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+1. Add an import:  from other_app.views import Home
+2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+1. Import the include() function: from django.urls import include, path
+2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+If the user does not provide a url then the user redirected to home page.If admin/ is provided with some url it is redirected to admin home page.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacepriceCom_1_1urls_a042280c5189e4c6a89b386a3f9a425d2}\label{namespacepriceCom_1_1urls_a042280c5189e4c6a89b386a3f9a425d2}} 
+\index{price\+Com\+::urls@{price\+Com\+::urls}!urlpatterns@{urlpatterns}}
+\index{urlpatterns@{urlpatterns}!price\+Com\+::urls@{price\+Com\+::urls}}
+\subsubsection{\texorpdfstring{urlpatterns}{urlpatterns}}
+{\footnotesize\ttfamily list price\+Com.\+urls.\+urlpatterns}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  [
+2     path(\textcolor{stringliteral}{'admin/'}, admin.site.urls),
+3     path(\textcolor{stringliteral}{''},include(\textcolor{stringliteral}{'price.urls'})),
+4         
+5 ]
+\end{DoxyCode}
