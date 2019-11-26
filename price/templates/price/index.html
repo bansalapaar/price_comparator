@@ -19,13 +19,14 @@
 		
 	</head>
 	<body>
+		
 		<div class="container">
 			
-			<div class = "row" id="div1">
-			 	<h1 align="center" id="heading">PRICE COMPARATOR</h1>
+			<div class="div1">
+			 	<h1 align="center" class="heading"><b>PRICE COMPARATOR</b></h1>
 			</div>
 			
-			<div class = "row" id ="div2" >
+			<div id ="div2" >
 				<form action="{% url 'index' %}" method="POST">
 					{% csrf_token %}
 						<h3 align="center">	

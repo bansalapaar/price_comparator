@@ -1,15 +1,19 @@
 body {
- background-image: url(https://cutt.ly/vem50wX);
 
+ background-repeat: no-repeat;
+ background-size: 150% 135%;
 }
-
-#div1{
-        background-color: darkorange;
-      }
-
+.div1{
+  overflow: hidden;
+  background-color: darkorange;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  left: 0;
+}
 #div2{
-width:auto;
+background-image: url(main.jpg);
+width:100%;
 height: 180px;
 padding: 200px;
 }
-
