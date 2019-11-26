@@ -9,26 +9,28 @@ class price_comp:
     def __init__(self):
         self.result=""
     def comp(self,item_name):
-        dict1={}
+        dict1=[]
         item_name=item_name.lower()
         amazon_dict ={}#amazon_price(item_name)
         #if 'amazon1' in amazon_dict:
-        #    dict1.update({'amazon':amazon_dict['amazon1']})
+        #    dict1.append(('amazon',amazon_dict['amazon1']))
 
         paytm_dict =paytm_price(item_name)
-        dict1.update({'paytm':paytm_dict['paytm1']})
+        dict1.append(('paytm',paytm_dict['paytm1']))
 
         flipkart_dict =flipkart_price(item_name)
-        dict1.update({'flipkart':flipkart_dict['flip1']})
+        dict1.append(('flipkart',flipkart_dict['flip1']))
         snapdeal_dict =snapdeal_price(item_name)
-        dict1.update({'snapdeal':snapdeal_dict['snapdeal1']})
+        dict1.append(('snapdeal',snapdeal_dict['snapdeal1']))
         final_dict = {**flipkart_dict, **paytm_dict, **amazon_dict,**snapdeal_dict}
         #print(final_dict)
 
     # sort the items by price
         price_sort = sorted(final_dict.items(), key=lambda x: x[1]['price'])
-        for a in dict1:
-            price_sort.insert(0,(a,dict1[a]))
+        price_sort=[('first',dict1),('second',price_sort)]
+        #for a in dict1:
+            #price_sort.insert(0,(a,dict1[a]))
         #print(price_sort)
+        #print(price_sort[0])
         self.result=price_sort
         return (price_sort)
