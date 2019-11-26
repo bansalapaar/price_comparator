@@ -1,8 +1,6 @@
-"""mysite URL Configuration
+"""
+mysite URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
 Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
@@ -12,6 +10,9 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+If the user does not provide a url then the user redirected to home page.If admin/ is provided with some url it is redirected to admin home page.
+
 """
 from django.contrib import admin
 from django.urls import path,include
