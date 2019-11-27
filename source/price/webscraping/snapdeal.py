@@ -32,8 +32,11 @@ def snapdeal_price(item_name):
             break
         dict1 = {}
         #dictionary to store the information about the item dataset
-        newurl=item.find_all('a',attrs={'class':'dp-widget-link'})
-        dict1.update({"link":newurl[0]['href']})
+        newurl=item.find('a',attrs={'class':'dp-widget-link'})
+        if not newurl==None:
+            dict1.update({"link":newurl['href']})
+        else:
+            dict1.update({"link":url})
         imga=item.find('picture',attrs={'class':'picture-elem'})
         imgurl=imga.find("img")
         imgurl1=[]
@@ -48,15 +51,6 @@ def snapdeal_price(item_name):
             #print(imgurl1[0][:])
         dict1.update({'imgurl':imgurl1[0][:]})
         name=imgurl['title']
-        token2 = re.split(',|;|:|_| |\.', (name).lower())
-        #print(token2)
-        flag=0
-        for a in token1:
-            if not a in token2:
-                flag = 1
-        if flag == 1:
-            i-=1
-            continue
         dict1.update({'name':name})
         price=item.find('span',attrs={'class':'lfloat product-price'})['display-price']
         dict1.update({'price':int(price)})

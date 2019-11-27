@@ -40,15 +40,6 @@ def paytm_price(item_name):
         name1 = item.find_all("div", {"class": "UGUy"})
 
         price1 = item.find_all("div", {"class": "_1kMS"})
-        flag = 0
-        token2 = re.split(',|;|:|_| |\.', (name1[0].text).lower())
-      
-        for a in token1:
-            if not a in token2:
-                flag = 1
-        if flag == 1:
-            continue
-
         dict1.update({"name": name1[0].text})
         dict1.update({"price": int(price1[0].text.replace(",", ""))})
         rating1 = item.find_all("div", {"class":"_2MEo"})

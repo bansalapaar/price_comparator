@@ -1,41 +1,41 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-	<head>
-	    <meta charset="utf-8">
-		<title>price_comparator</title>
-		<link href="{% static 'price/css/main1.css' %}" rel="stylesheet">
-		<!---<link rel="stylesheet" type="text/css" href="{% static 'price/css/main.css' %}" rel="stylesheet"/>-->
-	    
- 
-		
-		<!--bootstrap file-->
+<html lang="en">
+<head>
+  <title>Price Comparator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'price/css/main1.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#f7f5f7;">
 
-		
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-	</head>
-	<body>
-		
-		<div class="container">
-			
-			<div class="div1">
-			 	<h1 align="center" class="heading"><b>PRICE COMPARATOR</b></h1>
-			</div>
-			
-			<div id ="div2" >
-				<form action="{% url 'index' %}" method="POST">
-					{% csrf_token %}
-						<h3 align="center">	
-							{{ form.search }}
-							<input type="submit" value="Search">
-						</h3>
-						
-				</form>
-			</div>
-		</div>
-	</body>
-	</html>
+<div class="jumbotron text-center" style="margin-bottom:0; height: 20%;" id="bannar">
+<h1>Price Comparator</h1>
+</div>
+<div class="bar" style="height: 20px; background: #333">
+</div> 
+<div  class="Search" style="padding-top: 10%; padding-left: 25%;">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+<form action="{% url 'index' %}" method="POST"> 
+{% csrf_token %}
+  <div class="row">
+    <div class="col-xs-8 col-md-8">
+      <div class="input-group">
+	  {{form.search}}
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+</body>
+</html>

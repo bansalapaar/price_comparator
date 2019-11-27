@@ -1,58 +1,8 @@
-body {
-margin:0;
-padding:0;}
-
-.header{
-height:100vh;
-background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(main5.jpg);
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:sans-seif;
-
+.fakeimg {
+  height: 200px;
+  background: #aaa;
 }
-h1{
-color:#000;
-margin-bottom:70px;
-font-size:45px;
-letter-spacing:2px;
-text-align:center;
-}
-.searchbar
-{
-height:50px;
-padding:5px;
-border:none;
-border-radius:25px;
-outline:none;
-width:400px;
-}
-.search-btn:hover{
-background:#ffc107;
-cursor:pointer;
-}
-.search-btn
-{
-height:50px;
-widht:150px;
-background:#ffeb3b;
-border:none;
-color:#000;
-border-radius:25px;
-}
-.form-box{
-background:rgba(0,0,0,0.5);
-}
-.div1{
-  overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-  left: 0;
-}
-#div2{
-width:100%;
-padding:25%
+#bannar{
+  background-image: url("bannarbg.jpg"); 
+  height: 20%;
 }

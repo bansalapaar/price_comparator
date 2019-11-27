@@ -12,17 +12,19 @@ from .snapdeal import snapdeal_price
 
 class price_comp:
     def __init__(self):
-	"""
-	it initialise the result list with null.
-	"""
+        """
+        it initialise the result list with null.
+        """
         self.result=""
 
     def comp(self,item_name):
         dict1=[]
         item_name=item_name.lower()
-        amazon_dict ={}#amazon_price(item_name)
-        #if 'amazon1' in amazon_dict:
-        #    dict1.append(('amazon',amazon_dict['amazon1']))
+        amazon_dict =amazon_price(item_name)
+        if 'amazon1' in amazon_dict:
+            print("amazon worked")
+            dict1.append(('amazon',amazon_dict['amazon1']))
+            del(amazon_dict['amazon1'])
         """
         this
 
@@ -33,11 +35,14 @@ class price_comp:
         """
         paytm_dict =paytm_price(item_name)
         dict1.append(('paytm',paytm_dict['paytm1']))
+        del(paytm_dict['paytm1'])
 
         flipkart_dict =flipkart_price(item_name)
         dict1.append(('flipkart',flipkart_dict['flip1']))
+        del(flipkart_dict['flip1'])
         snapdeal_dict =snapdeal_price(item_name)
         dict1.append(('snapdeal',snapdeal_dict['snapdeal1']))
+        del(snapdeal_dict['snapdeal1'])
         final_dict = {**flipkart_dict, **paytm_dict, **amazon_dict,**snapdeal_dict}
         #print(final_dict)
 

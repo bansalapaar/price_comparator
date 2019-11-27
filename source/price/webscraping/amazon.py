@@ -32,9 +32,9 @@ def amazon_price(item_name):
 	#print(check)
 	i=0
 	if not check==None:
-	"""
-	This for loop iterates each item related to product on the amazon webpage and store information about it 
-	"""
+		"""
+		This for loop iterates each item related to product on the amazon webpage and store information about it 
+		"""
 		for item in check:
 			#print(item)
 			dic1={}
@@ -59,6 +59,8 @@ def amazon_price(item_name):
 			dic1.update({"rating":((rr.text).split(' '))[0]})
 			dic1.update({"price":int(rp.text.replace(",",""))})
 			dic1.update({"website":"Amazon"})
+			if link==None:
+				continue
 			dic1.update({"url":'https://www.amazon.in'+link['href']})
 			dic1.update({"imgurl":rm['src']})  
 			key="amazon"+str(i)
@@ -69,7 +71,7 @@ def amazon_price(item_name):
 		i=0
 		"""
 		for loop to extract item information when when page item shows horizontally
-		""""
+		"""
 		for item in check:
 			#print(i)
 			dic1={}
