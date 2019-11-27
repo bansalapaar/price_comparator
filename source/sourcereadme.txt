@@ -26,4 +26,7 @@ Samples
 ************************************************************
 Enter the product name you want to buy such as:
 
-Sample1:
+Sample1: IPhone 11
+Sample2: Moto G5 plus
+Sample3: Laptop
+Sample4: iMac
