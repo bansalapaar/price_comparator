@@ -26,8 +26,6 @@ def amazon_price(item_name):
 	r=requests.get(url,headers=headers)
 	soup=BeautifulSoup(r.content,'html5lib')
 	amazon_dict={}
-	contents=""
-
 	check=soup.find_all('li',{'class':'a-carousel-card'})
 	#print(check)
 	i=0
@@ -48,13 +46,6 @@ def amazon_price(item_name):
 			i=i+1
 			if i>=6:
 				break
-			token2=re.split(',|;|:|_| |\.',(rn.text).lower())
-			#print(token2)
-			for a in token1:
-				if not a in token2:
-					flag=1
-			if flag==1:
-				continue
 			dic1.update({"name":rn.text})
 			dic1.update({"rating":((rr.text).split(' '))[0]})
 			dic1.update({"price":int(rp.text.replace(",",""))})
@@ -85,13 +76,6 @@ def amazon_price(item_name):
 				i=i+1
 				if i>=6:
 					break
-				token2=re.split(',|;|:|_| |\.',(rn[0].text).lower())
-				#print(token2)
-				for a in token1:
-					if not a in token2:
-						flag=1
-				if flag==1:
-					continue
 				dic1.update({"name":rn[0].text})
 				dic1.update({"rating":((rr[0].text).split(' '))[0]})
 				dic1.update({"price":int(rp[0].text.replace(",",""))})

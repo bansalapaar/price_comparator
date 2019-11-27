@@ -24,7 +24,7 @@ def flipkart_price(item_name):
     box = soup.find_all('a', {"class": "_31qSD5"})
     flipkart_dict = {}
     i = 0
-    img = ""
+    img = "https://st1.bgr.in/wp-content/uploads/2018/08/Flipkart-805px.jpg"
     box1 = soup.find_all('div', {"class": "IIdQZO _1R0K0g _1SSAGr"})
     """
     item on flipkart is present in three form so the following three condition are present to extract product information in any form
@@ -39,13 +39,6 @@ def flipkart_price(item_name):
                 break
             dict1 = {}
             newurl = "https://www.flipkart.com"+item['href']
-            imgdiv = item.find_all("img")[0]#attrs={"class": "_1Nyybr  _30XEf0"})
-            imgurl=""
-            if imgdiv.get('data-src'):
-                imgurl=imgdiv.get("data-src")
-            else:
-                imgurl=imgdiv.get("src")    
-            #img=imgdiv.find_all("img")[0]['src']
             #print(imgurl)
             # dict1.update({'link':newurl})
             name1 = item.find_all("div", {"class": "_3wU53n"})
@@ -70,7 +63,7 @@ def flipkart_price(item_name):
                 dict1.update({"rating":""})
             dict1.update({"website":"Flipkart"})
             dict1.update({"url":newurl})
-            dict1.update({"imgurl":imgurl})  
+            dict1.update({"imgurl":img})  
             key="flip"+str(i)
             flipkart_dict.update({key:dict1})
     
@@ -112,14 +105,8 @@ def flipkart_price(item_name):
                 dict1.update({"rating":rating1[0].text})'''
             dict1.update({"rating":"No rating"})
             dict1.update({"website":"Flipkart"})
-            dict1.update({"url":newurl})
-            imgdiv = item.find_all("img")[0]#attrs={"class": "_1Nyybr  _30XEf0"})
-            imgurl=""
-            if imgdiv.get('data-src'):
-                imgurl=imgdiv.get("data-src")
-            else:
-                imgurl=imgdiv.get("src")  
-            dict1.update({"imgurl":imgurl})  
+            dict1.update({"url":newurl})  
+            dict1.update({"imgurl":img})  
             key="flip"+str(i)
             flipkart_dict.update({key:dict1})
               
@@ -165,13 +152,7 @@ def flipkart_price(item_name):
                 
             dict1.update({"website":"Flipkart"})
             dict1.update({"url":newurl})
-            imgdiv = item.find_all("img")[0]#attrs={"class": "_1Nyybr  _30XEf0"})
-            imgurl=""
-            if imgdiv.get('data-src'):
-                imgurl=imgdiv.get("data-src")
-            else:
-                imgurl=imgdiv.get("src")  
-            dict1.update({"imgurl":imgurl})    
+            dict1.update({"imgurl":img})    
             key="flip"+str(i)
             flipkart_dict.update({key:dict1})
         print(flipkart_dict)    

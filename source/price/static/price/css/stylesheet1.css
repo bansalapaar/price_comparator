@@ -1,25 +1,17 @@
-div {
-  word-wrap: break-word;
-}
+
 #bannar{
   background-image: url("bannarbg.jpg"); 
 }
 #div2{
   margin-left: 5px;
   padding-left: 5px;
-  width:24%;
-  height: auto;
+  width:auto;
+  height:10%
 }
-.item
-{
-  width:24%;
-  height:100%;
-  float:left;
-  background-color: #ffffff;
-}
+
 img { 
-  width:100%; 
-  height:100%; 
+  width:100%;
+  min-height: 60%;
   object-fit:cover;
 overflow: hidden;
  }

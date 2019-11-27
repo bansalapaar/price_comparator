@@ -24,22 +24,20 @@
       {% for a,b in result %}
       {% if a == 'first' %}
       <div class = "row" id="div2">
-        {% for c,v in b %}
-        <div class="col-sm-3">
-        <div class="item">
-          
-          <img src={{v.imgurl}} style="widht:50%">
+  
+      {% for c,v in b %}
+      <div class="col-sm-3">
+          <img src={{v.imgurl}}>
           <div class="desc">
             <a href={{v.url}}><h4 id="name">{{v.name}}<h4></a>
-            <h4>{{ v.price }}<h4>
+            <h4>&#8377 {{ v.price }}<h4>
             <h4>{{v.rating}}<h4>
           <h4>{{ v.website}}</h4>
           </div>
         </div>
-        </div>
       {% endfor %}
       </div>
-      <div class="bar" style="height: 40px; background: #999",width='100%%'><h4 align='center'>Other</h4></div>
+      <div class="bar" style="height: 25px; background: #999",width='100%%'><h4 align='center'>Other</h4></div>
       
       
 
@@ -48,12 +46,11 @@
 
       {% for c,v in b %}
 				<div class="col-sm-3">
-				<img src={{v.imgurl}}  width="200" height="300">
+				<img src={{v.imgurl}}>
 				<div class="desc">
 				<a href={{v.url}}><h4 id="name">{{v.name}}<h4></a>
-				<h5>{{ v.price }}<h5>
-				<h5>{{v.rating}}<h5>
-				<h5>{{ v.website}}</h5>
+				<h5>&#8377 {{ v.price }}<h5>
+        <h5>{{v.website}}</h5>
 				  </div>
 				</div>
       {% endfor %}
